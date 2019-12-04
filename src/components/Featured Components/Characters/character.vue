@@ -1,37 +1,8 @@
 <template>
-    <div class="uk-child-width-1-3@m" uk-grid>
-        <div>
-            <div class="uk-card uk-card-default">
-                <div class="uk-card-media-top">
-                    <img src="../../../assets/character-1.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Media Top</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default">
-                 <div class="uk-card-media-top">
-                    <img src="../../../assets/character-2.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Media Bottom</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-            </div>
-        </div>
-        <div>
-        <div class="uk-card uk-card-default">
-            <div class="uk-card-media-top">
-                <img src="../../../assets/character-2.jpg" alt="">
-            </div>
-            <div class="uk-card-body">
-                <h3 class="uk-card-title">Media Bottom</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>            
-        </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+            <img src="../../../assets/character-1.jpg" alt="character">
+            <p class="info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt modi recusandae quis veniam dolore, temporibus ex quasi voluptatem aperiam consequatur. <span><b> Read More...</b></span></p>
         </div>
     </div>
 </template>
@@ -44,7 +15,16 @@ export default {
 
 <style lang="scss" scoped>
     img {
-        height: 314px;
-        width: 457px;
+        height: 460px;
+        width: 400px;
+    }
+    .uk-card-default {
+        display: flex !important;
+        .info {
+            align-self: center;
+            padding: 10px;
+            text-align: left;
+            font-size: 1.2rem;
+        }
     }
 </style>

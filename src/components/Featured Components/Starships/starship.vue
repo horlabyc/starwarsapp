@@ -3,7 +3,7 @@
         <div>
             <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
-                    <img src="../../../assets/character-1.jpg" alt="">
+                    <img src="../../../assets/starship-1.jpg" alt="">
                 </div>
                 <div class="uk-card-body">
                     <h3 class="uk-card-title">Media Top</h3>
@@ -15,7 +15,7 @@
         <div>
             <div class="uk-card uk-card-default">
                  <div class="uk-card-media-top">
-                    <img src="../../../assets/character-2.jpg" alt="">
+                    <img src="../../../assets/starship-2.jpg" alt="">
                 </div>
                 <div class="uk-card-body">
                     <h3 class="uk-card-title">Media Bottom</h3>
@@ -27,7 +27,7 @@
         <div>
             <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
-                    <img src="../../../assets/character-2.jpg" alt="">
+                    <img src="../../../assets/starship-3.jpg" alt="">
                 </div>
                 <div class="uk-card-body">
                     <h3 class="uk-card-title">Media Bottom</h3>
@@ -39,7 +39,7 @@
         <div>
             <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
-                    <img src="../../../assets/character-1.jpg" alt="">
+                    <img src="../../../assets/starship-1.jpg" alt="">
                 </div>
                 <div class="uk-card-body">
                     <h3 class="uk-card-title">Media Top</h3>
@@ -51,7 +51,7 @@
         <div>
             <div class="uk-card uk-card-default">
                  <div class="uk-card-media-top">
-                    <img src="../../../assets/character-2.jpg" alt="">
+                    <img src="../../../assets/starship-2.jpg" alt="">
                 </div>
                 <div class="uk-card-body">
                     <h3 class="uk-card-title">Media Bottom</h3>
@@ -63,7 +63,7 @@
         <div>
             <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
-                    <img src="../../../assets/character-2.jpg" alt="">
+                    <img src="../../../assets/starship-2.jpg" alt="">
                 </div>
                 <div class="uk-card-body">
                     <h3 class="uk-card-title">Media Bottom</h3>

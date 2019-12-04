@@ -2,26 +2,21 @@
     <div class="container">
         <PopularStarship />
         <PopularPlanet />
-        <div class="popularCharacters">
-            <div class="title">
-                <h1>Popular Characters</h1>
-            </div>
-            <Starship />
-        </div>
+        <PopularCharacters />
     </div>   
 </template>
 
 <script>
-import Starship from '../Featured Components/Starships/starship';
 import PopularStarship from '../Featured Components/Starships/popularStarship';
 import PopularPlanet from '../Featured Components/Planets/popularPlanet';
+import PopularCharacters from '../Featured Components/Characters/popularCharacters';
 
 export default {
     name: 'HomePage',
     components: {
-        Starship, 
         PopularStarship,
-        PopularPlanet
+        PopularPlanet,
+        PopularCharacters
     }
 }
 </script>
