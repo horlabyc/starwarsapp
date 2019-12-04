@@ -1,5 +1,5 @@
 <template>
-    <div class="popularCharacters">
+    <div class="popularStarships">
         <div class="title">
             <h1>Popular Starships</h1>
         </div>

@@ -1,12 +1,7 @@
 <template>
     <div class="container">
         <PopularStarship />
-        <div class="popularCharacters">
-            <div class="title">
-                <h1>Popular Planets</h1>
-            </div>
-            <Starship />
-        </div>
+        <PopularPlanet />
         <div class="popularCharacters">
             <div class="title">
                 <h1>Popular Characters</h1>
@@ -19,12 +14,14 @@
 <script>
 import Starship from '../Featured Components/Starships/starship';
 import PopularStarship from '../Featured Components/Starships/popularStarship';
+import PopularPlanet from '../Featured Components/Planets/popularPlanet';
 
 export default {
     name: 'HomePage',
     components: {
         Starship, 
-        PopularStarship
+        PopularStarship,
+        PopularPlanet
     }
 }
 </script>
