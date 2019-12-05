@@ -18,6 +18,11 @@
             </div>
         </div>
         <!-- <button class="btn">View More</button> -->
+        <router-link to = "/planets"> 
+            <button class="btn">
+                View More
+            </button>
+        </router-link>
     </div>
 </template>
 
@@ -48,6 +53,23 @@ export default {
             left: 45%;
             bottom: -12px;
             }
+        }
+    }
+    .btn {
+        padding: 20px;
+        width: 30%;
+        border: none;
+        margin: 60px 0;
+        background: white;
+        border: 2px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-family: inherit;
+        transition: all 1s;
+        &:hover {
+            color: black;
+            background: #e5e5e5;
         }
     }
 </style>
