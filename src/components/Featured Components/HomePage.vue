@@ -2,7 +2,7 @@
     <div class="wrapper">
         <Header />
         <div class="holders">
-            <PopularStarship />
+            <PopularStarship :popularStarships = "popularStarships"/>
             <PopularPlanet />
             <PopularCharacters />
         </div>        
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+// import axios from 'axios';
 import Header from '../Layout/Header.component';
 import PopularStarship from '../Featured Components/Starships/popularStarship';
 import PopularPlanet from '../Featured Components/Planets/popularPlanet';
@@ -25,6 +26,37 @@ export default {
         PopularPlanet,
         PopularCharacters,
         // StarshipDetail
+    },
+    data() {
+        return {
+            popularStarships: []
+        }
+    },
+    methods: {
+        async getPopularStarships() {
+         try {
+            const response = await fetch('https://swapi.co/api/starships', {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json; charset=UTF-8' },
+            })
+            const popularStarships = await response.json();
+            popularStarships.results.forEach(starship => {
+                const { name, model, cargo_capacity } = starship;
+                this.popularStarships.push(
+                    { 
+                        name, model, cargo_capacity
+                    }
+                )
+            });
+            this.popularStarships = JSON.parse(JSON.stringify(this.popularStarships));
+        } catch (error) {
+            console.error(error)
+        }
+        }
+    },
+
+    created() {
+        this.getPopularStarships();
     }
 }
 </script>

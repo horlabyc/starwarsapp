@@ -3,15 +3,16 @@
         <div class="title">
             <h1>Popular Starships</h1>
         </div>
-        <div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
-            <Starship />
-            <Starship />
-            <Starship />
-            <Starship />
-            <Starship />
-            <Starship />
+        <div class="row" style="padding:20px">
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="ship in popularStarships.slice(0,6)" :key="ship.name">
+                <Starship :starshipInfo = "ship"/>
+            </div>
+            <!-- <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+                <div v-for="ship in popularStarships" :key="ship.name">
+                    <Starship />
+                </div> 
+            </div> -->
         </div>
-        <!-- <Starship />     -->
         <router-link to = "/starships"> 
             <button class="btn">
                 View More
@@ -25,7 +26,12 @@ import Starship from './starship';
 
 export default {
     name: 'PopularStarship',
-    components: {Starship}
+    components: {
+        Starship
+    },
+    props: {
+        popularStarships: Array
+    }
 }
 </script>
 

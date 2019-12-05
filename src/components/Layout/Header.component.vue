@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container-fluid">
     <div class="brandLogo">
         <router-link to="/">
             <img src='../../assets/logo.png' alt="logo">
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .container {
+    .container-fluid {
         background: white;
         background-image: url('../../assets/hero-banner.jpg');
         height: 90vh;
