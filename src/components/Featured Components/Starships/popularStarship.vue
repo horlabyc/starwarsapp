@@ -3,8 +3,20 @@
         <div class="title">
             <h1>Popular Starships</h1>
         </div>
-        <Starship />    
-        <button class="btn">View More</button>
+        <div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
+            <Starship />
+            <Starship />
+            <Starship />
+            <Starship />
+            <Starship />
+            <Starship />
+        </div>
+        <!-- <Starship />     -->
+        <router-link to = "/starships"> 
+            <button class="btn">
+                View More
+            </button>
+        </router-link>
     </div>
 </template>
 

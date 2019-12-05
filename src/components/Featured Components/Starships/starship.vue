@@ -9,67 +9,9 @@
                     <h3 class="uk-card-title">Media Top</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                 </div>
-                <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default">
-                 <div class="uk-card-media-top">
-                    <img src="../../../assets/starship-2.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Media Bottom</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default">
-                <div class="uk-card-media-top">
-                    <img src="../../../assets/starship-3.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Media Bottom</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div> 
-                <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>           
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default">
-                <div class="uk-card-media-top">
-                    <img src="../../../assets/starship-1.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Media Top</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default">
-                 <div class="uk-card-media-top">
-                    <img src="../../../assets/starship-2.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Media Bottom</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default">
-                <div class="uk-card-media-top">
-                    <img src="../../../assets/starship-2.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Media Bottom</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div> 
-                <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>           
+                <router-link :to="{ name: 'starshipdetail', params: { shipname: 123 }}">
+                    <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>
+                </router-link>
             </div>
         </div>
     </div>

@@ -1,7 +1,9 @@
 <template>
 <div class="container">
     <div class="brandLogo">
-        <img src='../../assets/logo.png' alt="logo">
+        <router-link to="/">
+            <img src='../../assets/logo.png' alt="logo">
+        </router-link>
     </div>
     <div class="content">
         <div class="sub-heading">
@@ -25,13 +27,6 @@
 export default {
     name: 'Header',
 
-    data() {
-
-    },
-
-    methods: {
-
-    }
 }
 </script>
 
