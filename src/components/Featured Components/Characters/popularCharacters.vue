@@ -8,7 +8,9 @@
             <Character />
             <Character />
         </div>
-        <button class="btn">View More</button>
+        <router-link to="/characters">
+            <button class="btn">View More</button>
+        </router-link>
     </div>
 </template>
 
