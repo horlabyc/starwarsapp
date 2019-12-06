@@ -18,11 +18,12 @@
             </p>
         </section>
         <button class="btn">Recently viewed Starships</button>
-        <div class="uk-child-width-1-3@m uk-grid-match" uk-grid style="padding: 50px">
-            <Starship />
-            <Starship />
-            <Starship />
+        <div class="row" style="padding: 50px;">
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="ship in recentlyViewedStarships.slice(0,3)" :key="ship.name">
+                <Starship :starshipInfo = "ship"/>
+            </div>
         </div>
+        
     </div>
 </template>
 <script>
@@ -31,6 +32,40 @@ export default {
     name: "StarshipDetail",
     components: {
         Starship
+    },
+    data(){
+        return {
+             recentlyViewedStarships: []
+        }
+       
+    },
+    methods: {
+        async getRecentlyViewedStarships() {
+         try {
+            const response = await fetch('https://swapi.co/api/starships', {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json; charset=UTF-8' },
+            })
+            const recentlyViewedStarships = await response.json();
+            recentlyViewedStarships.results.forEach(starship => {
+                const { name, model, cargo_capacity, url } = starship;
+                this.recentlyViewedStarships.push(
+                    { 
+                        name, model, cargo_capacity, url
+                    }
+                )
+            });
+            // this.isLoading = false;
+            this.recentlyViewedStarships = JSON.parse(JSON.stringify(this.recentlyViewedStarships));
+            } catch (error) {
+                console.error(error)
+                // this.isLoading = false;
+                // this.isError = true;
+            }
+        }
+    },
+    mounted() {
+        this.getRecentlyViewedStarships();
     }
 }
 </script>

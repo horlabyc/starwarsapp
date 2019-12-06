@@ -12,12 +12,10 @@
             </div>
         </div>
         <div class="paginate" v-if="showPagination">
-            <!-- <a  class="prev"><i class="fas fa-angle-left"></i></a> -->
             <a  class="num" v-bind:class="{ active: activePage === 1}" v-on:click="getAllStarships(1)">1</a>
             <a  class="num" v-bind:class="{ active: activePage === 2}" v-on:click="getAllStarships(2)">2</a>
             <a  class="num" v-bind:class="{ active: activePage === 3}" v-on:click="getAllStarships(3)">3</a>
             <a  class="num" v-bind:class="{ active: activePage === 4}" v-on:click="getAllStarships(4)">4</a>
-            <!-- <a  class="next"><i class="fas fa-angle-right"></i></a> -->
         </div>
     </div>
 </template>
@@ -55,10 +53,10 @@ export default {
             })
             const allStarships = await response.json();
             allStarships.results.forEach(starship => {
-                const { name, model, cargo_capacity } = starship;
+                const { name, model, cargo_capacity, url } = starship;
                 this.allStarships.push(
                     { 
-                        name, model, cargo_capacity
+                        name, model, cargo_capacity, url
                     }
                 )
             });

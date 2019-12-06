@@ -1,16 +1,16 @@
 <template>
     <div class="PopularPlanets">
         <div class="title">
-            <h1>Popular Planets</h1>
+            <h1 style="font-family: inherit">Popular Planets</h1>
         </div>
         <div uk-slider="center: true">
             <div class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1">
-                <ul class="uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-grid">
-                    <Planet />
-                    <Planet />
-                    <Planet />
-                    <Planet />
-                    <Planet />
+                <ul class="uk-slider-items uk-child-width-1-3@s">
+                    <!-- <Planet /> -->
+                    <li v-for="planet in popularPlanets.slice(0,6)" :key="planet.name" style="margin: 15px">
+                        <img src="../../../assets/planet-2.jpg" alt="">
+                        <Planet :planetInfo = "planet"/>
+                    </li>
                 </ul>
                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
@@ -33,6 +33,9 @@ export default {
     name: 'PopularPlanet',
     components: {
         Planet
+    },
+    props: {
+        popularPlanets: Array
     }
 }
 </script>

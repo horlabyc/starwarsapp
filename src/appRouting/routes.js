@@ -9,7 +9,7 @@ export default [
   { path: '/', redirect: '/Home' },
   { path: '/Home', name: 'home', component: Homepage },
   { path: '/starships', name: 'all-starships', component: AllStarships },
-  { path: '/starship/:shipname', name:'starshipdetail', component: StarshipDetail, props: true },
+  { path: '/starship/:shipId', name:'starshipdetail', component: StarshipDetail, props: true },
   { path: '/planets', name: 'all-planets', component: AllPlanets },
   { path: '/characters', name: 'all-characters', component: AllCharacters },
   // { path: '/characters/:characterName', name: 'characterDetails', component: }

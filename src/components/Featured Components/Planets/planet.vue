@@ -1,15 +1,21 @@
 <template>
-     <li>
-        <img src="../../../assets/planet-1.jpg" alt="">
+    
         <div class="uk-overlay uk-overlay-primary uk-position-bottom">
-            <h5><a class="header text-center">1</a></h5>
+            <h3><a class="header text-left">Name: <span class="info">{{ planetInfo.name }}</span></a></h3>
+            <h3><a class="header text-left">Orbital Period: <span class="info">{{ planetInfo.orbital_period }}</span></a></h3>
+            <h3><a class="header text-left">Population: <span class="info">{{ planetInfo.population }}</span></a></h3>
         </div>
-    </li>
+    
 </template>
 
 <script>
 export default {
-    name: 'Planet'
+    name: 'Planet',
+    props: {
+        planetInfo: Object
+    },
+    created(){
+    }
 }
 </script>
 
@@ -17,5 +23,16 @@ export default {
     .uk-panel {
         // bottom: 0 !important;
         // left: 50% !important;
+    }
+    h3{
+        font-family: inherit;
+    }
+    .uk-position-bottom {
+        width: 90% !important;
+        margin: 0 auto !important;
+    }
+    .info {
+        color: coral;
+        font-size: 1.2rem;
     }
 </style>

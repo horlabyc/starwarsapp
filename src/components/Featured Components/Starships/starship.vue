@@ -10,7 +10,7 @@
                     <p>{{ starshipInfo.cargo_capacity }}</p>
                     <p>{{ starshipInfo.model }}</p>
                 </div>
-                <router-link :to="{ name: 'starshipdetail', params: { shipname: 123 }}">
+                <router-link :to="{ name: 'starshipdetail', params: { shipId: starshipInfo.url.slice(30,-1).slice(1) }}">
                     <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>
                 </router-link>
             </div>
@@ -24,6 +24,8 @@ export default {
 
     props: {
         starshipInfo: Object
+    },
+    mounted() {
     }
 }
 </script>

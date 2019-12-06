@@ -5,10 +5,9 @@
             <Loader v-if="isLoading"/>
             <Error v-if="isError" />
             <PopularStarship :popularStarships = "popularStarships"/>
-            <PopularPlanet />
+            <PopularPlanet :popularPlanets = "popularPlanets"/>
             <PopularCharacters />
         </div>        
-        <!-- <StarshipDetail /> -->
     </div>   
 </template>
 
@@ -35,6 +34,7 @@ export default {
     data() {
         return {
             popularStarships: [],
+            popularPlanets: [],
             isLoading: true,
             isError: false
         }
@@ -43,15 +43,15 @@ export default {
         async getPopularStarships() {
          try {
             const response = await fetch('https://swapi.co/api/starships', {
-            method: 'POST',
+            method: 'GET',
             headers: { 'Content-type': 'application/json; charset=UTF-8' },
             })
             const popularStarships = await response.json();
             popularStarships.results.forEach(starship => {
-                const { name, model, cargo_capacity } = starship;
+                const { name, model, cargo_capacity, url } = starship;
                 this.popularStarships.push(
                     { 
-                        name, model, cargo_capacity
+                        name, model, cargo_capacity, url
                     }
                 )
             });
@@ -62,11 +62,35 @@ export default {
             this.isLoading = false;
             this.isError = true;
         }
+        },
+        async getPopularPlanets() {
+         try {
+            const response = await fetch('https://swapi.co/api/planets/', {
+            method: 'GET',
+            headers: { 'Content-type': 'application/json; charset=UTF-8' },
+            })
+            const popularPlanets = await response.json();
+            popularPlanets.results.forEach(planet => {
+                const { name, orbital_period, population, url } = planet;
+                this.popularPlanets.push(
+                    { 
+                        name, orbital_period, population, url
+                    }
+                )
+            });
+            this.isLoading = false;
+            this.popularPlanets = JSON.parse(JSON.stringify(this.popularPlanets));
+        } catch (error) {
+            console.error(error)
+            this.isLoading = false;
+            this.isError = true;
         }
+        },
     },
 
     created() {
         this.getPopularStarships();
+        this.getPopularPlanets();
     }
 }
 </script>
