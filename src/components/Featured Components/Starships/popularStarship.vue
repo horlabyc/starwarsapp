@@ -7,11 +7,6 @@
             <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="ship in popularStarships.slice(0,6)" :key="ship.name">
                 <Starship :starshipInfo = "ship"/>
             </div>
-            <!-- <div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
-                <div v-for="ship in popularStarships" :key="ship.name">
-                    <Starship />
-                </div> 
-            </div> -->
         </div>
         <router-link to = "/starships"> 
             <button class="btn">

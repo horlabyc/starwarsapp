@@ -2,6 +2,8 @@
     <div class="wrapper">
         <Header />
         <div class="holders">
+            <Loader v-if="isLoading"/>
+            <Error v-if="isError" />
             <PopularStarship :popularStarships = "popularStarships"/>
             <PopularPlanet />
             <PopularCharacters />
@@ -16,20 +18,25 @@ import Header from '../Layout/Header.component';
 import PopularStarship from '../Featured Components/Starships/popularStarship';
 import PopularPlanet from '../Featured Components/Planets/popularPlanet';
 import PopularCharacters from '../Featured Components/Characters/popularCharacters';
+import Loader from '../shared/Loader';
+import Error from '../shared/error';
 // import StarshipDetail from '../../components/Featured Components/Starships/starshipDetails';
 
 export default {
     name: 'HomePage',
     components: {
         Header,
+        Loader,
+        Error,
         PopularStarship,
         PopularPlanet,
         PopularCharacters,
-        // StarshipDetail
     },
     data() {
         return {
-            popularStarships: []
+            popularStarships: [],
+            isLoading: true,
+            isError: false
         }
     },
     methods: {
@@ -48,9 +55,12 @@ export default {
                     }
                 )
             });
+            this.isLoading = false;
             this.popularStarships = JSON.parse(JSON.stringify(this.popularStarships));
         } catch (error) {
             console.error(error)
+            this.isLoading = false;
+            this.isError = true;
         }
         }
     },

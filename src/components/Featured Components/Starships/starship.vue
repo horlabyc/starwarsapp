@@ -24,9 +24,6 @@ export default {
 
     props: {
         starshipInfo: Object
-    },
-    created() {
-        console.log(this.starshipInfo);
     }
 }
 </script>
