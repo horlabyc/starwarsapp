@@ -8,7 +8,7 @@
         <Error v-if="isError" />
         <div class="content-wrapper">
             <div class="row" style="padding:20px">
-                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="planet in filteredPlanets" :key="planet.name">
+                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="planet in filteredPlanets" :key="planet.name" v-scroll-reveal="{ delay: 500, duration: 2000 }">
                     <img src="../../../assets/planet-3.jpg" alt="">
                     <Planet :planetInfo = "planet"/>
                 </div>

@@ -63,6 +63,9 @@ export default {
         }
     },
     methods: {
+        scrollToTop() {
+            window.scrollTo(0,0);
+        },
         onSelect(e) {
             if (e.target.value === "All"){
                 this.filteredCharacters = this.allCharacters;
@@ -80,10 +83,10 @@ export default {
             })
             const allCharacters = await response.json();
             allCharacters.results.forEach(character => {
-                const { name, height, mass, gender } = character;
+                const { name, height, mass, gender, url } = character;
                 this.allCharacters.push(
                     { 
-                        name, height, mass, gender
+                        name, height, mass, gender, url
                     }
                 )
             });

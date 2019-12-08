@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body"  v-scroll-reveal.reset="{ delay: 500, duration: 2000 }">
             <!-- <img :src= "generateRandomImagePath()" alt="character"> -->
-            <img src ="../../../assets/character-1.jpg" alt="character"> 
-            <div class="info">
+            <img src ="../../../assets/character-1.jpg" alt="character" > 
+            <div class="info" v-scroll-reveal="{ reset: true, origin: 'left', distance: '200px', delay: 500, duration: 2000 }">
                 <p class="name"><span>{{ characterInfo.name }}</span></p>
                 <p>Height: <span>{{ characterInfo.height }}cm</span></p>
                 <p>Mass: <span>{{ characterInfo.mass }}</span>kg</p>
@@ -57,9 +57,27 @@ export default {
         }
     }
      @media (max-width: 600px) {
+         .uk-card-default {
+             flex-direction: column !important;
+         }
         img {
-            height: 260px !important;
-            width: 200px !important;
+            height: 270px !important;
+            width: 270px !important;
+        }
+        .name {
+            margin-bottom: 25px !important; 
+        }
+    }
+     @media (max-width: 768px) {
+         .uk-card-default {
+             flex-direction: column !important;
+         }
+        img {
+            height: 275px !important;
+            width: 295px !important;
+        }
+        .name {
+            margin-bottom: 25px !important; 
         }
     }
 </style>

@@ -1,11 +1,11 @@
 <template>
     <!-- <div class="uk-child-width-1-3@m" uk-grid> -->
         <!-- <div> -->
-            <div class="uk-card uk-card-default">
+            <div class="uk-card uk-card-default"  v-scroll-reveal.reset="{ delay: 500, duration: 2000 }">
                 <div class="uk-card-media-top">
                     <img src="../../../assets/starship-1.jpg" alt="">
                 </div>
-                <div class="uk-card-body">
+                <div class="uk-card-body" v-scroll-reveal="{ reset: true, origin: 'bottom', distance: '200px', delay: 500, duration: 2000 }">
                     <h3 class="uk-card-title" style="color: #7b052d;">{{ starshipInfo.name }}</h3>
                     <p>Capity: <span>{{ starshipInfo.cargo_capacity }}</span></p>
                     <p>Model: <span>{{ starshipInfo.model }}</span></p>

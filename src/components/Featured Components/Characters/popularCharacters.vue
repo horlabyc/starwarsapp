@@ -4,11 +4,11 @@
             <h1 style ="font-family: inherit">Popular Characters</h1>
         </div>
         <div class="row">
-            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12" v-for="character in popularCharacters.slice(0,6)" :key="character.name" style="margin: 15px">
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12" v-for="character in popularCharacters.slice(0,6)" :key="character.name" style="margin: 15px">
                 <Character :characterInfo = "character"/>
             </div>
         </div>
-        <router-link to="/characters">
+        <router-link to="/characters"  @click.native="$scrollToTop">
             <button class="btn">View More</button>
         </router-link>
     </div>

@@ -44,6 +44,9 @@ export default {
         }
     },
     methods: {
+        scrollToTop() {
+                window.scrollTo(0,0);
+        },
         async getPopularStarships() {
          try {
             const response = await fetch('https://swapi.co/api/starships', {

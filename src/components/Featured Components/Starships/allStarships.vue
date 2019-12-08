@@ -2,7 +2,7 @@
     <div class="wrapper">
         <Header />
         <div class="title">
-            <h1>Popular Starships</h1>
+            <h1 style="font-family:inherit">Popular Starships</h1>
         </div>
         <Loader v-if="isLoading"/>
         <Error v-if="isError" />
