@@ -7,7 +7,7 @@
                 </router-link>
             </div>
             <div class="starshipImage">
-                <img src="../../../assets/starship-6.jpg" alt="starship">
+                <img src="../../../assets/starship-2.jpg" alt="starship">
             </div>
         </header>
         <Loader v-if="isLoading"/>
