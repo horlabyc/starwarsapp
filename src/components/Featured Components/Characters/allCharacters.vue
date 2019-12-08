@@ -63,9 +63,6 @@ export default {
         }
     },
     methods: {
-        scrollToTop() {
-            window.scrollTo(0,0);
-        },
         onSelect(e) {
             if (e.target.value === "All"){
                 this.filteredCharacters = this.allCharacters;

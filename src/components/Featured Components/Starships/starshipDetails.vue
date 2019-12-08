@@ -9,11 +9,12 @@
             <div class="starshipImage">
                 <img src="../../../assets/starship-2.jpg" alt="starship">
             </div>
+            <div class="starshipName"> {{ shipDetails.name }} </div>
         </header>
         <Loader v-if="isLoading"/>
         <Error v-if="isError" />
         <section v-if="!isLoading">
-            <p class="starshipInfo">Name: <span class='info'> {{ shipDetails.name }} </span></p>
+            <!-- <p class="starshipInfo">Name: <span class='info'> {{ shipDetails.name }} </span></p> -->
             <p class="starshipInfo"> Model: <span  class='info'>{{ shipDetails.model }}</span></p>
             <p class="starshipInfo">No. of Passengers: <span  class='info'> {{ shipDetails.passengers }} </span></p>
             <p class="starshipInfo"> Manufacturer: <span  class='info'>{{ shipDetails.manufacturer }}</span></p>
@@ -106,10 +107,27 @@ export default {
         header {
             background: white;
             background-image: url('../../../assets/hero-banner.jpg');
-            height: 100vh;
+            height: 50vh;
             display: flex;
             padding: 20px;
             flex-direction: column;
+            position:relative;
+        }
+        .starshipName{
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            bottom: 24px;
+            font-size: 2rem;
+            left: 80px;
+            border-left: 2px solid;
+            padding: 10px;
+            border-bottom: 2px solid;
+        }
+        .starshipImage{
+            img {
+                padding: 10px;
+            }
         }
         .brandLogo {
             display: flex;
@@ -165,6 +183,14 @@ export default {
             padding: 7px !important;
             width: 80% !important;
         }
+        .starshipImage{
+            img {
+                height: 100px !important;
+            }
+        }
+        .starshipName{
+            font-size: 1.3rem !important;
+        }
     }
     @media (min-width: 600px) {
         .brandLogo {
@@ -177,11 +203,14 @@ export default {
         }
         .starshipImage{
             img {
-                height: 300px !important;
+                height: 185px !important;
             }
         }
+        .starshipName{
+            font-size: 1.3rem !important;
+        }
         section {
-            margin-top: 90px !important;
+            margin-top: 100px !important;
         }
      }
 </style>

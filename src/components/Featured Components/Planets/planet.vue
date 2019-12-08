@@ -1,5 +1,4 @@
 <template>
-    
         <div class="uk-overlay uk-overlay-primary uk-position-bottom">
             <p style="margin:0"><a class="header text-left">Name: <span class="info">{{ planetInfo.name }}</span></a></p>
             <p style="margin:0"><a class="header text-left">Orbital Period: <span class="info">{{ planetInfo.orbital_period }}</span></a></p>
@@ -16,6 +15,14 @@ export default {
     name: 'Planet',
     props: {
         planetInfo: Object
+    },
+    data(){
+        return {
+            
+        }
+    },
+    methods: {
+        
     }
 }
 </script>

@@ -9,7 +9,7 @@
         <div class="content-wrapper">
             <div class="row" style="padding:20px">
                 <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="planet in filteredPlanets" :key="planet.name" v-scroll-reveal="{ delay: 500, duration: 2000 }">
-                    <img src="../../../assets/planet-3.jpg" alt="">
+                    <img v-bind:src="getNextImage()" alt="">
                     <Planet :planetInfo = "planet"/>
                 </div>
             </div>
@@ -46,10 +46,19 @@ export default {
             isLoading: true,
             isError: false,
             activePage: 1,
-            showPagination: false
+            showPagination: false,
+            planetImages: [
+                require('../../../assets/planet-1.jpg'),
+                require('../../../assets/planet-2.jpg'),
+                require('../../../assets/planet-3.jpg'),
+            ]
         }
     },
     methods: {
+        getNextImage(){
+            const index = Math.floor(Math.random()*3);
+            return this.planetImages[index];
+        },
         async getAllPlanets(pageNum) {
             this.allPlanets = [];
             this.isLoading = true;
@@ -99,6 +108,11 @@ export default {
 <style lang="scss" scoped>
     .content-wrapper {
         // padding: 50px;
+    }
+    .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .title {
         position: relative;

@@ -8,7 +8,7 @@
                 <Character :characterInfo = "character"/>
             </div>
         </div>
-        <router-link to="/characters"  @click.native="$scrollToTop">
+        <router-link to="/characters">
             <button class="btn">View More</button>
         </router-link>
     </div>

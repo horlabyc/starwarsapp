@@ -8,7 +8,7 @@
                 <ul class="uk-slider-items uk-child-width-1-3@s">
                     <!-- <Planet /> -->
                     <li v-for="planet in popularPlanets.slice(0,6)" :key="planet.name" style="margin: 15px">
-                        <img src="../../../assets/planet-2.jpg" alt="">
+                        <img v-bind:src="getNextImage()" alt="">
                         <Planet :planetInfo = "planet"/>
                     </li>
                 </ul>
@@ -36,6 +36,21 @@ export default {
     },
     props: {
         popularPlanets: Array
+    },
+    data(){
+        return{
+            planetImages: [
+                require('../../../assets/planet-1.jpg'),
+                require('../../../assets/planet-2.jpg'),
+                require('../../../assets/planet-3.jpg'),
+            ]
+        }
+    },
+    methods: {
+        getNextImage(){
+            const index = Math.floor(Math.random()*3);
+            return this.planetImages[index];
+        },
     }
 }
 </script>

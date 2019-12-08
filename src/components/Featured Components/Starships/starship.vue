@@ -3,7 +3,7 @@
         <!-- <div> -->
             <div class="uk-card uk-card-default"  v-scroll-reveal="{ delay: 500, duration: 2000 }">
                 <div class="uk-card-media-top">
-                    <img src="../../../assets/starship-5.jpg" alt="">
+                    <img v-bind:src="getNextImage()" alt="starshipImage">
                 </div>
                 <div class="uk-card-body" v-scroll-reveal="{ reset: true, origin: 'bottom', distance: '200px', delay: 500, duration: 2000 }">
                     <h3 class="uk-card-title" style="color: #7b052d;">{{ starshipInfo.name }}</h3>
@@ -24,6 +24,20 @@ export default {
 
     props: {
         starshipInfo: Object
+    },
+    data() {
+        return {
+            starshipImages: [
+                require('../../../assets/starship-1.jpg'), require('../../../assets/starship-2.jpg'), require('../../../assets/starship-3.jpg'), require('../../../assets/starship-4.jpg'),
+                require('../../../assets/starship-5.jpg'), require('../../../assets/starship-6.jpg')
+                ],
+        }
+    },
+    methods:{
+        getNextImage(){
+            const index = Math.floor(Math.random()*6);
+            return this.starshipImages[index];
+        }
     },
     mounted() {
     }
