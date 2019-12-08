@@ -120,28 +120,28 @@ export default {
             }
         },
         filterStarship(searchTerm){
-           const filter = this.popularStarships.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
-           if (filter.length === 0) {
-               this.filteredStarships = this.popularStarships
-           } else {
-               this.filterStarships = filter;
-           }
+          this.filteredStarships = this.popularStarships.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        //    if (filter.length === 0) {
+        //        this.filteredStarships = this.popularStarships
+        //    } else {
+        //        this.filteredStarships = filter;
+        //    }
         },
         filterPlanets(searchTerm){
-           const filter = this.popularPlanets.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
-            if (filter.length === 0) {
-               this.filteredPlanets = this.popularPlanets
-           } else {
-               this.filteredPlanets = filter;
-           }
+           this.filteredPlanets = this.popularPlanets.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        //     if (filter.length === 0) {
+        //        this.filteredPlanets = this.popularPlanets
+        //    } else {
+        //        this.filteredPlanets = filter;
+        //    }
         },
         filterCharacters(searchTerm){
-           const filter = this.popularCharacters.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
-            if (filter.length === 0) {
-               this.filteredCharacters = this.popularCharacters
-           } else {
-               this.filteredCharacters = filter;
-           }
+          this.filteredCharacters = this.popularCharacters.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+        //     if (filter.length === 0) {
+        //        this.filteredCharacters = this.popularCharacters
+        //    } else {
+        //        this.filteredCharacters = filter;
+        //    }
         },
         search(searchTerm){
             // console.log(searchTerm);

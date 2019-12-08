@@ -43,7 +43,7 @@ export default {
     .container-fluid {
         background: white;
         background-image: url('../../assets/hero-banner.jpg');
-        height: 90vh;
+        height: 60vh;
         display: flex;
         padding: 20px;
         flex-direction: column;
@@ -57,7 +57,7 @@ export default {
         }
         .content {
             display: flex;
-            height: 60vh;
+            height: 50vh;
             align-items: center;
             justify-content: center;
             img {
@@ -134,9 +134,9 @@ export default {
                 font-size: 26px !important;
             }
             .title {
-                margin: 1rem !important;
+                margin: 0rem !important;
                 p {
-                    font-size: 1.2rem;
+                    font-size: 0.9rem;
                 }
             }
             #search {
