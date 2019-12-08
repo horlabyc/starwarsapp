@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <Header />
+        <Header v-on:searchTerm="search"/>
         <div class="title">
             <h1 style="font-family: inherit">Starwars Planets</h1>
         </div>
@@ -8,7 +8,7 @@
         <Error v-if="isError" />
         <div class="content-wrapper">
             <div class="row" style="padding:20px">
-                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="planet in allPlanets" :key="planet.name">
+                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="planet in filteredPlanets" :key="planet.name">
                     <img src="../../../assets/planet-3.jpg" alt="">
                     <Planet :planetInfo = "planet"/>
                 </div>
@@ -42,6 +42,7 @@ export default {
     data() {
         return{
             allPlanets: [],
+            filteredPlanets: [],
             isLoading: true,
             isError: false,
             activePage: 1,
@@ -68,6 +69,7 @@ export default {
             });
             this.isLoading = false;
             this.allPlanets = JSON.parse(JSON.stringify(this.allPlanets));
+            this.filteredPlanets = this.allPlanets;
             this.activePage = pageNum;
             this.showPagination = true;
             } catch (error) {
@@ -75,6 +77,17 @@ export default {
                 this.isLoading = false;
                 this.isError = true;
             }
+        },
+        filterData(searchTerm){
+            const filter = this.allPlanets.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
+            if (filter.length === 0) {
+               this.filteredPlanets = this.allPlanets
+           } else {
+               this.filteredPlanets = filter;
+           }
+        },
+        search(searchTerm){
+            this.filterData(searchTerm);
         }
     },
     mounted() {
@@ -85,7 +98,7 @@ export default {
 
 <style lang="scss" scoped>
     .content-wrapper {
-        padding: 50px;
+        // padding: 50px;
     }
     .title {
         position: relative;

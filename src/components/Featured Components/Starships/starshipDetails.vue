@@ -10,12 +10,13 @@
                 <img src="../../../assets/starship-6.jpg" alt="starship">
             </div>
         </header>
-        <section>
-            <p class="starshipInfo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit iusto soluta nisi harum nemo quidem doloremque tempore, illum officia! Error mollitia asperiores deleniti accusamus sed placeat possimus ea quae facilis dolor illo eligendi quisquam qui quo, ab sequi vero maxime itaque inventore rem odit atque. 
-                Sapiente tenetur, veritatis repudiandae ratione necessitatibus nostrum blanditiis commodi culpa dolorum in amet vero odio placeat! Dignissimos accusantium nihil non quaerat beatae, reiciendis totam repellendus nemo aliquam ullam. 
-                Exercitationem modi aliquam officia id veritatis dolores. 
-                Asperiores earum vitae consequuntur commodi exercitationem voluptates, dolorem officia, repellendus est distinctio quibusdam consequatur aliquam nesciunt rerum corrupti recusandae tempora.
-            </p>
+        <Loader v-if="isLoading"/>
+        <Error v-if="isError" />
+        <section v-if="!isLoading">
+            <p class="starshipInfo">Name: <span class='info'> {{ shipDetails.name }} </span></p>
+            <p class="starshipInfo"> Model: <span  class='info'>{{ shipDetails.model }}</span></p>
+            <p class="starshipInfo">No. of Passengers: <span  class='info'> {{ shipDetails.passengers }} </span></p>
+            <p class="starshipInfo"> Manufacturer: <span  class='info'>{{ shipDetails.manufacturer }}</span></p>
         </section>
         <button class="btn">Recently viewed Starships</button>
         <div class="row" style="padding: 50px;">
@@ -28,14 +29,22 @@
 </template>
 <script>
 import Starship from '../Starships/starship';
+import Loader from '../../shared/Loader';
+import Error from '../../shared/error';
 export default {
     name: "StarshipDetail",
     components: {
-        Starship
+        Starship,
+        Loader,
+        Error
     },
     data(){
         return {
-             recentlyViewedStarships: []
+             recentlyViewedStarships: [],
+             shipDetails: Object,
+             shipId: Number,
+             isLoading: true,
+             isError: false
         }
        
     },
@@ -43,7 +52,7 @@ export default {
         async getRecentlyViewedStarships() {
          try {
             const response = await fetch('https://swapi.co/api/starships', {
-            method: 'POST',
+            method: 'GET',
             headers: { 'Content-type': 'application/json; charset=UTF-8' },
             })
             const recentlyViewedStarships = await response.json();
@@ -62,10 +71,32 @@ export default {
                 // this.isLoading = false;
                 // this.isError = true;
             }
+        },
+        async getShipDetails() {
+            this.isLoading = true;
+            this.shipDetails = {};
+            try {
+                const response = await fetch(`https://swapi.co/api/starships/${this.getShipId()}/`, {
+                method: 'GET',
+                headers: { 'Content-type': 'application/json; charset=UTF-8' },
+                });
+                const shipDetails = await response.json();
+                this.shipDetails = shipDetails;
+                this.isLoading = false;
+            } catch (error) {
+                console.error(error)
+                this.isLoading = false;
+                this.isError = true;
+            }
+            
+        },
+        getShipId() {
+            return this.$route.params.shipId
         }
     },
     mounted() {
         this.getRecentlyViewedStarships();
+        this.getShipDetails();
     }
 }
 </script>
@@ -89,7 +120,7 @@ export default {
             }
         }
         .btn {
-            padding: 20px;
+            padding: 10px;
             width: 30%;
             border: none;
             margin: 60px 0;
@@ -97,7 +128,7 @@ export default {
             border: 2px solid black;
             border-radius: 5px;
             // cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-family: inherit;
             transition: all 1s;
             // &:hover {
@@ -107,8 +138,50 @@ export default {
         }
         .starshipInfo{
             max-width: 700px;
-            margin: 50px auto;
+            margin: 25px auto;
             font-size: 1.2rem;
+            color: #673AB7;
         }
     }
+    .icons {
+        height: 30px;
+    }
+    .info {
+        font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+        .brandLogo {
+            padding:10px !important;
+            img {
+                width: 110px !important;
+                height: 40px !important;
+                margin-bottom: 50px !important;
+            }
+        }
+        .row {
+            padding:15px !important;
+        }
+        .btn {
+            padding: 7px !important;
+            width: 80% !important;
+        }
+    }
+    @media (min-width: 600px) {
+        .brandLogo {
+            padding:10px !important;
+            img {
+                width: 110px !important;
+                height: 40px !important;
+                // margin-bottom: 50px !important;
+            }
+        }
+        .starshipImage{
+            img {
+                height: 300px !important;
+            }
+        }
+        section {
+            margin-top: 90px !important;
+        }
+     }
 </style>

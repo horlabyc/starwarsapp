@@ -16,7 +16,7 @@
             </div>
             <div class="search">
                 <span class="uk-margin-small-right" uk-icon="search" id="search"></span>
-                <input type="text" name="search"  placeholder="Enter a search term">
+                <input type="text" name="search"  placeholder="Enter a search term" v-model="searchTerm" @keyup="onChange($event)">
             </div>
         </div>        
     </div>
@@ -26,7 +26,16 @@
 <script>
 export default {
     name: 'Header',
-
+    data(){
+        return {
+            searchTerm: ''
+        }
+    },
+    methods: {
+        onChange() {
+            this.$emit('searchTerm', this.searchTerm);
+        }
+    }
 }
 </script>
 
@@ -48,7 +57,7 @@ export default {
         }
         .content {
             display: flex;
-            height: inherit;
+            height: 60vh;
             align-items: center;
             justify-content: center;
             img {
@@ -109,6 +118,73 @@ export default {
                 }
             }
             
+        }
+    }
+    // Media Query
+    @media (max-width: 600px) {
+        .brandLogo {
+            padding: 10px !important;
+            img {
+                width: 110px !important;
+                height: 40px !important;
+            }
+        }
+        .sub-heading{
+            .subtitle{
+                font-size: 26px !important;
+            }
+            .title {
+                margin: 1rem !important;
+                p {
+                    font-size: 1.2rem;
+                }
+            }
+            #search {
+                bottom: 11px !important;
+            }
+            .search input {
+                padding: 10px 60px !important;
+                font-size: 1rem !important;
+            }
+        }
+        .content {
+            img {
+                width: 110px !important;
+                height: 40px !important;
+            }
+        }
+    }
+    @media (min-width: 600px) {
+        .brandLogo {
+            padding: 10px !important;
+            img {
+                width: 110px !important;
+                height: 40px !important;
+            }
+        }
+        .content {
+            img {
+                width: 110px !important;
+                height: 40px !important;
+            }
+        }
+        .sub-heading{
+            .subtitle{
+                font-size: 26px !important;
+            }
+            .title {
+                margin: 1rem !important;
+                p {
+                    font-size: 1.2rem;
+                }
+            }
+            #search {
+                bottom: 11px !important;
+            }
+            .search input {
+                padding: 10px 60px !important;
+                font-size: 1rem !important;
+            }
         }
     }
 </style>

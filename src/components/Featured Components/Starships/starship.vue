@@ -6,9 +6,9 @@
                     <img src="../../../assets/starship-1.jpg" alt="">
                 </div>
                 <div class="uk-card-body">
-                    <h3 class="uk-card-title">{{ starshipInfo.name }}</h3>
-                    <p>{{ starshipInfo.cargo_capacity }}</p>
-                    <p>{{ starshipInfo.model }}</p>
+                    <h3 class="uk-card-title" style="color: #7b052d;">{{ starshipInfo.name }}</h3>
+                    <p>Capity: <span>{{ starshipInfo.cargo_capacity }}</span></p>
+                    <p>Model: <span>{{ starshipInfo.model }}</span></p>
                 </div>
                 <router-link :to="{ name: 'starshipdetail', params: { shipId: starshipInfo.url.slice(30,-1).slice(1) }}">
                     <button class="btn-readmore">Read More <span uk-icon="arrow-right"></span></button>

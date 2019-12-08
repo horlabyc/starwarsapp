@@ -1,12 +1,12 @@
 <template>
     <div class="popularCharacters">
         <div class="title">
-            <h1>Popular Characters</h1>
+            <h1 style ="font-family: inherit">Popular Characters</h1>
         </div>
-        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
-            <Character />
-            <Character />
-            <Character />
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12" v-for="character in popularCharacters.slice(0,6)" :key="character.name" style="margin: 15px">
+                <Character :characterInfo = "character"/>
+            </div>
         </div>
         <router-link to="/characters">
             <button class="btn">View More</button>
@@ -21,6 +21,9 @@ export default {
     name: 'PopularCharacters',
     components: {
         Character
+    },
+    props: {
+        popularCharacters: Array
     }
 }
 </script>
@@ -43,6 +46,11 @@ export default {
             }
         }
     }
+    .row {
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+    }
     .btn {
         padding: 20px;
         width: 30%;
@@ -58,6 +66,20 @@ export default {
         &:hover {
             color: black;
             background: #e5e5e5;
+        }
+    }
+     @media (max-width: 600px) {
+        .btn {
+            width: 100% !important;
+            padding:10px !important;
+            font-size: 1rem !important;
+        }
+    }
+    @media (min-width: 600px) {
+        .btn {
+            width: 60% !important;
+            padding:10px !important;
+            font-size: 1rem !important;
         }
     }
 </style>

@@ -1,10 +1,10 @@
 <template>
     <div class="popularStarships">
         <div class="title">
-            <h1>Popular Starships</h1>
+            <h1 style="font-family:inherit">Popular Starships</h1>
         </div>
         <div class="row" style="padding:20px">
-            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="ship in popularStarships.slice(0,6)" :key="ship.name">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin-bottom: 30px;" v-for="ship in popularStarships.slice(0,6)" :key="ship.name">
                 <Starship :starshipInfo = "ship"/>
             </div>
         </div>
@@ -63,6 +63,20 @@ export default {
         &:hover {
             color: black;
             background: #e5e5e5;
+        }
+    }
+    @media (max-width: 600px) {
+        .btn {
+            width: 100% !important;
+            padding:10px !important;
+            font-size: 1rem !important;
+        }
+    }
+    @media (min-width: 600px) {
+        .btn {
+            width: 60% !important;
+            padding:10px !important;
+            font-size: 1rem !important;
         }
     }
 </style>

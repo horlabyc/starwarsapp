@@ -75,4 +75,18 @@ export default {
             background: #e5e5e5;
         }
     }
+     @media (max-width: 600px) {
+        .btn {
+            width: 100% !important;
+            padding:10px !important;
+            font-size: 1rem !important;
+        }
+    }
+    @media (min-width: 600px) {
+        .btn {
+            width: 60% !important;
+            padding:10px !important;
+            font-size: 1rem !important;
+        }
+    }
 </style>

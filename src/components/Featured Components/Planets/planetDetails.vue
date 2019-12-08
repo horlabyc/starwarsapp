@@ -6,21 +6,21 @@
                     <img src='../../../assets/logo.png' alt="logo">
                 </router-link>
             </div>
-            <div class="characterImage">
-                <img src="../../../assets/character-1.jpg" alt="character">
+            <div class="planetImage">
+                <img src="../../../assets/planet-2.jpg" alt="planet">
             </div>
         </header>
         <Loader v-if="isLoading"/>
         <Error v-if="isError" />
         <section v-if="!isLoading" style="margin-top: 120px">
-            <p class="Info"><b>Name: </b><span class='info'> <em style="color: #607D8B;">{{ characterDetails.name }}</em> </span></p>
-            <p class="Info"><b>Height: </b> <span  class='info'><em style="color: #607D8B;"> {{ characterDetails.height }} </em></span></p>
-            <p class="Info"><b>Mass: </b><span  class='info'> <em style="color: #607D8B;"> {{ characterDetails.mass }} </em> </span></p>
-            <p class="Info"> <b>Birth year: </b><span  class='info'> <em style="color: #607D8B;"> {{ characterDetails.birth_year }} </em></span></p>
-            <p class="Info"><b>Gender: </b><span class='info'> <em style="color: #607D8B;">{{ characterDetails.gender }}</em> </span></p>
-            <p class="Info"><b>Hair Color: </b> <span  class='info'><em style="color: #607D8B;"> {{ characterDetails.hair_color }} </em></span></p>
-            <p class="Info"><b>Skin Color: </b><span  class='info'> <em style="color: #607D8B;"> {{ characterDetails.skin_color }} </em> </span></p>
-            <p class="Info"> <b>Eye Color: </b><span  class='info'> <em style="color: #607D8B;"> {{ characterDetails.eye_color }} </em></span></p>
+            <p class="Info"><b>Name: </b><span class='info'> <em style="color: #607D8B;">{{ planetDetails.name }}</em> </span></p>
+            <p class="Info"><b>Rotation Period: </b> <span  class='info'><em style="color: #607D8B;"> {{ planetDetails.rotation_period }} </em></span></p>
+            <p class="Info"><b>Orbital Period: </b><span  class='info'> <em style="color: #607D8B;"> {{ planetDetails.orbital_period }} </em> </span></p>
+            <p class="Info"> <b>Diameter: </b><span  class='info'> <em style="color: #607D8B;"> {{ planetDetails.diameter }} </em></span></p>
+            <p class="Info"><b>Climate: </b><span class='info'> <em style="color: #607D8B;">{{ planetDetails.climate }}</em> </span></p>
+            <p class="Info"><b>Gravity: </b> <span  class='info'><em style="color: #607D8B;"> {{ planetDetails.gravity }} </em></span></p>
+            <p class="Info"><b>Terrain: </b><span  class='info'> <em style="color: #607D8B;"> {{ planetDetails.terrain }} </em> </span></p>
+            <p class="Info"> <b>Population: </b><span  class='info'> <em style="color: #607D8B;"> {{ planetDetails.population }} </em></span></p>
         </section>
     </div>
 </template>
@@ -29,30 +29,30 @@
 import Loader from '../../shared/Loader';
 import Error from '../../shared/error';
 export default {
-    name: "CharacterDetails",
+    name: "PlanetDetails",
     components: {
         Loader,
         Error
     },
     data() {
          return {
-             characterDetails: Object,
+             planetDetails: Object,
              Id: Number,
              isLoading: true,
              isError: false
         }
     },
     methods: {
-        async getCharacterDetail() {
+        async getPlanetDetail() {
             this.isLoading = true;
-            this.characterDetails = {};
+            this.planetDetails = {};
             try {
-                const response = await fetch(`https://swapi.co/api/people/${this.getCharacterId()}/`, {
+                const response = await fetch(`https://swapi.co/api/planets/${this.getPlanet()}/`, {
                 method: 'GET',
                 headers: { 'Content-type': 'application/json; charset=UTF-8' },
                 });
                 const Details = await response.json();
-                this.characterDetails = Details;
+                this.planetDetails = Details;
                 this.isLoading = false;
             } catch (error) {
                 console.error(error)
@@ -60,12 +60,12 @@ export default {
                 this.isError = true;
             }
         },
-        getCharacterId() {
+        getPlanet() {
             return this.$route.params.Id
         }
     },
     mounted() {
-        this.getCharacterDetail();
+        this.getPlanetDetail();
     }
 }
 </script>
@@ -88,7 +88,7 @@ export default {
                 height: 80px;
             }
         }
-        .characterImage{
+        .planetImage{
             img {
                 height: 400px;
             }
@@ -113,7 +113,7 @@ export default {
             margin-top: 50px !important;
         }
      }
-     @media (min-width: 600px) {
+      @media (min-width: 600px) {
         .brandLogo {
             padding:10px !important;
             img {
@@ -122,7 +122,7 @@ export default {
                 // margin-bottom: 50px !important;
             }
         }
-        .characterImage{
+        .planetImage{
             img {
                 height: 300px !important;
             }
