@@ -1,7 +1,7 @@
 <template>
     <!-- <div class="uk-child-width-1-3@m" uk-grid> -->
         <!-- <div> -->
-            <div class="uk-card uk-card-default"  v-scroll-reveal.reset="{ delay: 500, duration: 2000 }">
+            <div class="uk-card uk-card-default"  v-scroll-reveal="{ delay: 500, duration: 2000 }">
                 <div class="uk-card-media-top">
                     <img src="../../../assets/starship-5.jpg" alt="">
                 </div>

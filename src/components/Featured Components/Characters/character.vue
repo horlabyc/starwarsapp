@@ -3,7 +3,7 @@
         <div class="uk-card uk-card-default uk-card-hover uk-card-body"  v-scroll-reveal.reset="{ delay: 500, duration: 2000 }">
             <!-- <img :src= "generateRandomImagePath()" alt="character"> -->
             <img src ="../../../assets/character-1.jpg" alt="character" > 
-            <div class="info" v-scroll-reveal="{ reset: true, origin: 'left', distance: '200px', delay: 500, duration: 2000 }">
+            <div class="info" v-scroll-reveal="{ reset: false, origin: 'left', distance: '200px', delay: 500, duration: 2000 }">
                 <p class="name"><span>{{ characterInfo.name }}</span></p>
                 <p>Height: <span>{{ characterInfo.height }}cm</span></p>
                 <p>Mass: <span>{{ characterInfo.mass }}</span>kg</p>

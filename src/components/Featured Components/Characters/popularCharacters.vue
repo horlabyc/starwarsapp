@@ -75,7 +75,7 @@ export default {
             font-size: 1rem !important;
         }
     }
-    @media (min-width: 600px) {
+    @media (max-width: 768px) {
         .btn {
             width: 60% !important;
             padding:10px !important;
