@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="uk-card uk-card-default uk-card-hover uk-card-body"  v-scroll-reveal.reset="{ delay: 500, duration: 2000 }">
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body"  v-scroll-reveal="{ delay: 500, duration: 2000 }">
             <!-- <img :src= "generateRandomImagePath()" alt="character"> -->
             <img v-bind:src ="getNextImage()" alt="character" > 
             <div class="info" v-scroll-reveal="{ reset: false, origin: 'left', distance: '200px', delay: 500, duration: 2000 }">
